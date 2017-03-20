@@ -67,7 +67,7 @@ battery_perc(const char *battery)
     /* open battery now file */
     if (!(fp = fopen(batterynowfile, "r"))) {
         fprintf(stderr, "Error opening battery file.%s",batterynowfile);
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read value */
@@ -79,7 +79,7 @@ battery_perc(const char *battery)
     /* open battery full file */
     if (!(fp = fopen(batteryfullfile, "r"))) {
         fprintf(stderr, "Error opening battery file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read value */
@@ -106,7 +106,7 @@ cpu_perc(const char *null)
     /* open stat file */
     if (!(fp = fopen("/proc/stat","r"))) {
         fprintf(stderr, "Error opening stat file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read values */
@@ -121,7 +121,7 @@ cpu_perc(const char *null)
     /* open stat file */
     if (!(fp = fopen("/proc/stat","r"))) {
         fprintf(stderr, "Error opening stat file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read values */
@@ -151,7 +151,7 @@ datetime(const char *timeformat)
     if(!strftime(buf, bufsize, timeformat, localtime(&tm))) {
         setlocale(LC_TIME, "C");
         fprintf(stderr, "Strftime failed.\n");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     setlocale(LC_TIME, "C");
@@ -171,7 +171,7 @@ disk_perc(const char *mountpoint)
     /* try to open mountpoint */
     if (statvfs(mountpoint, &fs) < 0) {
         fprintf(stderr, "Could not get filesystem info.\n");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* calculate percent */
@@ -192,7 +192,7 @@ ram_perc(const char *null)
     /* open meminfo file */
     if (!(fp = fopen("/proc/meminfo", "r"))) {
         fprintf(stderr, "Error opening meminfo file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read the values */
@@ -221,7 +221,7 @@ temp(const char *file)
     /* open temperature file */
     if (!(fp = fopen(file, "r"))) {
         fprintf(stderr, "Could not open temperature file.\n");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* extract temperature */
@@ -295,7 +295,7 @@ wifi_perc(const char *wificard)
     /* open wifi file */
     if(!(fp = fopen(path, "r"))) {
         fprintf(stderr, "Error opening wifi operstate file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* read the status */
@@ -306,13 +306,13 @@ wifi_perc(const char *wificard)
 
     /* check if interface down */
     if(strcmp(status, "up\n") != 0){
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* open wifi file */
     if (!(fp = fopen("/proc/net/wireless", "r"))) {
         fprintf(stderr, "Error opening wireless file.");
-        return smprintf("n/a");
+        return smprintf("-");
     }
 
     /* extract the signal strength */
