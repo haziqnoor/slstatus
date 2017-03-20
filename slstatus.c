@@ -268,7 +268,7 @@ vol_perc(const char *soundcard)
 
     /* return the string (mute) */
     if (!mute)
-        return smprintf("mute");
+        return smprintf("-");
     else
         return smprintf("%d%%", (vol * 100) / max);
 }
