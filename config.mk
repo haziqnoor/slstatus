@@ -4,6 +4,9 @@ VERSION = 1.0
 # Customize below to fit your system
 
 # paths
+
+# See LICENSE file for copyright and license details.
+
 PREFIX = /usr
 MANPREFIX = ${PREFIX}/share/man
 
@@ -27,4 +30,3 @@ LDFLAGS = -g ${LIBS}
 
 # compiler and linker
 CC = cc
-

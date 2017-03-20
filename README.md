@@ -23,7 +23,7 @@ Multiple entries (battery, wifi signal, ...) are supported and everything can be
 
 ### Installation
 
-Before you continue, please be sure that a C compiler, `make` and `alsa-lib` are installed. Then compile the program once using `sudo make install`. After that you may change config.h to your needs and recompile it after any change! 
+Before you continue, please be sure that a C compiler, `make` and `alsa-lib` are installed. Then compile the program once using `sudo make install`. After that you may change config.h to your needs and recompile it after any change!
 
 ### Starting
 
