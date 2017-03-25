@@ -29,8 +29,8 @@ static const struct arg args[] = {
 	{ cpu_perc, "🏿 %s ", NULL},
 	{ ram_perc, "𝍫%s ", NULL },
 	{ disk_perc, "● %s ", "/" },
-	{ datetime, "W%s ", "%W" },
+	{ datetime, "%s/", "%W" },
+	{ datetime, "%s ", "%j" },
 	{ datetime, "%s ", "%b%d" },
-	{ datetime, "D%s ", "%j" },
 	{ datetime, "%s", "%a %R" },
 };
