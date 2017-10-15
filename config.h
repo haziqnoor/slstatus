@@ -22,8 +22,6 @@ static unsigned int update_interval = 1;
 - wifi_perc (wifi signal in percent) [argument: wifi card interface name] */
 static const struct arg args[] = {
     /* function, format, argument */
-	{ wifi_perc, "📶 %s ", "wls1" },
-	{ vol_perc, "🔈%s ", "default" },
 	{ cpu_perc, "🏿 %s ", NULL},
 	{ ram_perc, "𝍫%s ", NULL },
 	{ datetime, "%s", "%b%d %a %R" },
